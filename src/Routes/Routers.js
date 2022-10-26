@@ -7,16 +7,19 @@ import Course from '../Components/Courses/Course'
 import CourseDetails from '../Components/Courses/CourseDetails'
 import Blog from '../Components/blog/Blog'
 import FAQ from '../Components/FAQ/FAQ'
+import Checkout from '../Components/checkout/Checkout'
+import PrivetRout from "./PrivetRout.js";
 
  export const router = createBrowserRouter([
     {
         path:'/',
         element:<Main />,
+        errorElement:<h5>Page not found 404!</h5>,
         children:[
             {
                 path:'/',
-                element:<Home />,
-               loader: ({params}) => fetch(`https://web-server-five.vercel.app/web`)
+                element:<Home />
+               
             },
             {
                 path:'/home',
@@ -27,8 +30,14 @@ import FAQ from '../Components/FAQ/FAQ'
                 element:<Course />
             },
             {
-                path:'/courseDetails',
-                element:<CourseDetails />
+                path:'/courses/:id',
+                element:<CourseDetails />,
+                loader:({params}) => fetch(`https://web-server-five.vercel.app/web/${params.id}`)
+            },
+            {
+                path:'/checkout',
+                element:<PrivetRout><Checkout /> </PrivetRout> ,
+                // loader:({params}) => fetch(`https://web-server-five.vercel.app/web/${params.id}`)
             },
             {
                 path:'/blog',

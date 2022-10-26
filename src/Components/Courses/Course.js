@@ -15,7 +15,7 @@ const Course = () => {
             <div className="nameList">
                 {
                     data.map((d)=>(
-                       <h6><Link to='/'>{d.name}</Link></h6> 
+                       <h6 key={d.id}><Link to={d.id}>{d.name}</Link></h6> 
                     ))
                 }
             </div>
@@ -27,7 +27,7 @@ const Course = () => {
                 <div className="card-body">
                     <h5 className="card-title">{d.name}</h5>
                     <p className="card-text">{d.info}</p>
-                    <Link to='/' className="btn btn-primary">Go somewhere</Link>
+                    <Link to={d.id} className="btn btn-primary">Get Details</Link>
                 </div>
                 </div>
 

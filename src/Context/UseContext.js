@@ -30,16 +30,18 @@ const UseContext = ({children}) => {
     };
 
     const signinGoogle = (provider)=>{
+        setloding(true)
         return signInWithPopup(auth,provider)
     };
 
     const signinGithub = (provider)=>{
+        setloding(true)
         return signInWithPopup(auth,provider)
     };
 
     useEffect(()=>{
         const unscribe = onAuthStateChanged(auth, (current)=>{
-            setuser(current)
+            setuser(current);
             setloding(false)
         });
         return () => unscribe()
@@ -50,7 +52,6 @@ const UseContext = ({children}) => {
     logOutUser, upProfile, signinGoogle, signinGithub
     };
 
-   // const authinfo={user}
     return (
         <div>
             <AuthContext.Provider value={authinfo}>
