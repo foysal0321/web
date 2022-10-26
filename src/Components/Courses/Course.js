@@ -11,20 +11,29 @@ const Course = () => {
     })
     //console.log(data);
     return (
-        <div>
+        <div className='course'>
+            <div className="nameList">
+                {
+                    data.map((d)=>(
+                       <h6><Link to='/'>{d.name}</Link></h6> 
+                    ))
+                }
+            </div>
+            <div className="cart">
            {
             data.map((d)=>(
                 <div key={d.id} className="card">
-                <img src={d.img} class="card-img-top" alt="..."/>
-                <div class="card-body">
-                    <h5 class="card-title">{d.name}</h5>
-                    <p class="card-text">{d.info}</p>
+                <img src={d.img} className="card-img-top" alt="..."/>
+                <div className="card-body">
+                    <h5 className="card-title">{d.name}</h5>
+                    <p className="card-text">{d.info}</p>
                     <Link to='/' className="btn btn-primary">Go somewhere</Link>
                 </div>
                 </div>
 
             ))
            }
+           </div>
         </div>
     );
 };

@@ -1,29 +1,29 @@
 import React, { createContext, useEffect, useState } from 'react';
-import {getAuth} from 'firebase/auth';
+import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut} from 'firebase/auth';
 import app from '../firebase/Firebase';
 
 export const AuthContext = createContext();
-//const auth = getAuth(app);
+const auth = getAuth(app);
 
 const UseContext = ({children}) => {
 
     const [user,setuser] = useState('ali');
-    //const [loding,setloding] = useState(false);
+    const [loding,setloding] = useState(false);
 
-    // const createUser = (email,password)=>{
-        
-    // };
+    const createUser = (email,password)=>{
+      return  createUserWithEmailAndPassword(auth,email,password)
+    };
 
-    // const signInUser = (email,password)=>{
-        
-    // };
+    const signInUser = (email,password)=>{
+        return signInWithEmailAndPassword(auth,email,password)
+    };
 
-    // const logOutUser = ()=>{
-
-    // };
+    const logOutUser = ()=>{
+        return signOut(auth)
+    };
 
     // const signinGoogle = ()=>{
-
+    //     return 
     // };
 
     // const signinGithub = ()=>{
@@ -37,11 +37,11 @@ const UseContext = ({children}) => {
 
     // },[])
 
-    // const authinfo = {user, loding, createUser, signInUser,
-    // logOutUser, signinGoogle, signinGithub, 
-    // };
+    const authinfo = {user, loding, createUser, signInUser,
+    logOutUser
+    };
 
-    const authinfo={user}
+   // const authinfo={user}
     return (
         <div>
             <AuthContext.Provider value={authinfo}>

@@ -16,7 +16,7 @@ import FAQ from '../Components/FAQ/FAQ'
             {
                 path:'/',
                 element:<Home />,
-                // loader: fetch(`https://web-server-five.vercel.app/web`)
+               loader: ({params}) => fetch(`https://web-server-five.vercel.app/web`)
             },
             {
                 path:'/home',
