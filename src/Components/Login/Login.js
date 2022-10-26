@@ -1,18 +1,27 @@
 import React, { useContext } from 'react';
-import './Login.css'
+import { AuthContext } from '../../Context/UseContext';
+import './Login.css';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
-  //  const {user, signInUser} = useContext()
+    const {user, signInUser} = useContext(AuthContext)
 
   const signinBtn=(e)=>{
     e.preventDefault();
 
     const from = e.target;
-    const name = from.name.value;
-    const picture = from.picture.value;
     const email = from.email.value;
     const pass = from.pass.value;
 
+    signInUser(email,pass)
+    .then(result=>{
+      const user = result.user;
+      console.log(user);
+      from.reset()
+    })
+    .catch(err=>{
+      console.error(err);
+  })
     
     //console.log(name,picture,email,pass);
 }
@@ -25,6 +34,7 @@ const Login = () => {
             <label>Password</label> <br />
            <input type="password" name='pass' placeholder='password'/>  <br />  
            <button>Log in</button>  
+           <p>Are you new?please <Link to='/register'>register</Link></p>
           </form>
 
           <button>Sign in Google</button>

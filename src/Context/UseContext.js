@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut} from 'firebase/auth';
+import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth';
 import app from '../firebase/Firebase';
 
 export const AuthContext = createContext();
@@ -7,38 +7,47 @@ const auth = getAuth(app);
 
 const UseContext = ({children}) => {
 
-    const [user,setuser] = useState('ali');
-    const [loding,setloding] = useState(false);
+    const [user,setuser] = useState(null);
+    const [loding,setloding] = useState(true);
 
     const createUser = (email,password)=>{
+        setloding(true)
       return  createUserWithEmailAndPassword(auth,email,password)
     };
 
     const signInUser = (email,password)=>{
+        setloding(true)
         return signInWithEmailAndPassword(auth,email,password)
     };
 
+    const upProfile=(profile)=>{
+        return updateProfile(auth.currentUser,profile)
+    }
+
     const logOutUser = ()=>{
+        setloding(true)
         return signOut(auth)
     };
 
-    // const signinGoogle = ()=>{
-    //     return 
-    // };
+    const signinGoogle = (provider)=>{
+        return signInWithPopup(auth,provider)
+    };
 
-    // const signinGithub = ()=>{
+    const signinGithub = (provider)=>{
+        return signInWithPopup(auth,provider)
+    };
 
-    // };
+    useEffect(()=>{
+        const unscribe = onAuthStateChanged(auth, (current)=>{
+            setuser(current)
+            setloding(false)
+        });
+        return () => unscribe()
 
-    // useEffect(()=>{
-    //     const unscribe = '';
-
-    //     return () => unscribe()
-
-    // },[])
+    },[])
 
     const authinfo = {user, loding, createUser, signInUser,
-    logOutUser
+    logOutUser, upProfile, signinGoogle, signinGithub
     };
 
    // const authinfo={user}
