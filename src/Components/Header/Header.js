@@ -19,22 +19,22 @@ const Header = () => {
     <div className="collapse navbar-collapse" id="navbarNav">
        <ul className="navbar-nav mx-auto">
         <li className="nav-item">
-          <Link to='/' class="nav-link active" aria-current="page">Home</Link>
+          <Link to='/' className="nav-link active" aria-current="page">Home</Link>
         </li>
         <li className="nav-item">
-          <Link to='/courses' class="nav-link active" aria-current="page">Courses</Link>
+          <Link to='/courses' className="nav-link active" aria-current="page">Courses</Link>
         </li>
         <li className="nav-item">
-          <Link to='/blog' class="nav-link active" aria-current="page">Blog</Link>
+          <Link to='/blog' className="nav-link active" aria-current="page">Blog</Link>
         </li>
         <li className="nav-item">
-          <Link to='/faq' class="nav-link active" aria-current="page">FAQ</Link>
+          <Link to='/faq' className="nav-link active" aria-current="page">FAQ</Link>
         </li>
         <li className="nav-item">
-          <Link to='/register' class="nav-link active" aria-current="page">Register</Link>
+          <Link to='/register' className="nav-link active" aria-current="page">Register</Link>
         </li>
         <li className="nav-item">
-          <Link to='/login' class="nav-link active" aria-current="page">Login</Link>
+          <Link to='/login' className="nav-link active" aria-current="page">Login</Link>
         </li>
            
       </ul>
