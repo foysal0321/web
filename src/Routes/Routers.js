@@ -22,7 +22,7 @@ import FAQ from '../Components/FAQ/FAQ'
                 element:<Home />
             },
             {
-                path:'/course',
+                path:'/courses',
                 element:<Course />
             },
             {

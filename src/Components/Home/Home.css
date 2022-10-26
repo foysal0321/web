@@ -1,0 +1,15 @@
+.header{
+    display: flex;
+    padding: 60px 2px;
+    gap: 12px;
+
+}
+
+.img img{
+    width: 700px;
+    height: 450px;
+    border-radius: 7px;
+}
+.info{
+    max-width: 600px;
+}
