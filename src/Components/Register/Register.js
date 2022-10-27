@@ -13,7 +13,7 @@ const Register = () => {
 
     const providerGoogle = new GoogleAuthProvider();
     const providerGithub = new GithubAuthProvider();
-    
+
     const createBtn=(e)=>{
         e.preventDefault();
 
@@ -22,7 +22,7 @@ const Register = () => {
         const picture = from.picture.value;
         const email = from.email.value;
         const pass = from.pass.value; 
-
+       //firebase deploy 
         createUser(email,pass)
         .then(result=>{
             const user = result.user;
