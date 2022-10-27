@@ -23,7 +23,7 @@ const CourseDetails = () => {
                 <div className="card-body">
                     <h5 className="card-title">{data.name}</h5>
                     <p className="card-text">{data.info}</p>                
-                           <Link to='/checkout' className="btn btn-primary">Get access</Link>  
+                           <Link to={`/checkout/${data.id}`} className="btn btn-primary">Get access</Link>  
                          <button onClick={handlePrint}>Get Pdf</button>            
                 </div>
                 </div>

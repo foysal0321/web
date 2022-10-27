@@ -35,9 +35,9 @@ import PrivetRout from "./PrivetRout.js";
                 loader:({params}) => fetch(`https://web-server-five.vercel.app/web/${params.id}`)
             },
             {
-                path:'/checkout',
+                path:'/checkout/:id',
                 element:<PrivetRout><Checkout /> </PrivetRout> ,
-                // loader:({params}) => fetch(`https://web-server-five.vercel.app/web/${params.id}`)
+                loader:({params}) => fetch(`https://web-server-five.vercel.app/checkout/${params.id}`)
             },
             {
                 path:'/blog',
