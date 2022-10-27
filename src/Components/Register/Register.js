@@ -1,10 +1,11 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Context/UseContext';
 import './Register.css';
 import { Link } from 'react-router-dom';
 const Register = () => {
     const {user, createUser, upProfile, signinGoogle, signinGithub  } = useContext(AuthContext);
+    const [err,seterr] = useState('')
 
     const providerGoogle = new GoogleAuthProvider();
     const providerGithub = new GithubAuthProvider();
@@ -23,10 +24,11 @@ const Register = () => {
             console.log(user);
             profileUpdate(name,picture)
             from.reset()
-
+            seterr('')
         })
         .catch(err=>{
             console.error(err);
+            seterr(err.message)
         })
     }
 
@@ -77,6 +79,7 @@ const Register = () => {
            <input type="email" name='email' placeholder='email' required/>    <br />  
             <label>Password</label> <br />
            <input type="password" name='pass' placeholder='password'/>  <br />  
+           <p className='err'>{err}</p>
            <button>Register</button>  
            <p>Are you visit the site?please <Link to='/login'>log in</Link></p>
           </form>
