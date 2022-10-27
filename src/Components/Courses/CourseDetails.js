@@ -15,21 +15,21 @@ const CourseDetails = () => {
     })
     
     return (
-        <div>         
+        <div className='container py-3'>         
             <div className="pdf py-5">
-              <div ref={compontRef} style={{width: '100%',height: '600px'}} className="">
-                <div className="card">
+              <div ref={compontRef} style={{width: '100%'}} className="">
+                <div className="card " style={{width: '29rem'}}>
                 <img src={data.img} className="card-img-top" alt="..."/>
                 <div className="card-body">
                     <h5 className="card-title">{data.name}</h5>
                     <p className="card-text">{data.info}</p>                
                            <Link to={`/checkout/${data.id}`} className="btn btn-primary">Get access</Link>  
-                         <button onClick={handlePrint}>Get Pdf</button>            
+                         <button className='btn btn-dark mx-3' onClick={handlePrint}>Download Pdf</button>            
                 </div>
                 </div>
               </div>
             </div>
-             <Link to='/courses'> <button>Back to courses</button> </Link>
+             <Link to='/courses'> <button className='btn btn-danger'>Back to courses</button> </Link>
         </div>
     );
 };

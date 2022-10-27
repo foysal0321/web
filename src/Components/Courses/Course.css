@@ -2,11 +2,27 @@
 .course{
     display: flex;
 }
-
-.card img{
-    width:270px;
-    height:250px;
+.cart{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+    padding: 15px;
 }
-.card{
-    width:18rem;
+.nameList{
+    width: 200px;
+}
+.nameList a{
+    padding: 10px;
+    width: 170px;
+font-size: 22px;
+
+}
+.nameList button{
+    width: 170px;
+border: 1px solid gray;
+margin: 13px 0px;
+}
+.card img{
+    width:230px;
+    height:200px;
 }

@@ -11,22 +11,22 @@ const Course = () => {
     })
     //console.log(data);
     return (
-        <div className='course'>
+        <div className='course container py-5'>
             <div className="nameList">
                 {
                     data.map((d)=>(
-                       <h6 key={d.id}><Link to={d.id}>{d.name}</Link></h6> 
+                       <div key={d.id}><Link to={d.id}> <button> {d.name} </button> </Link></div> 
                     ))
                 }
             </div>
             <div className="cart">
            {
             data.map((d)=>(
-                <div key={d.id} className="card">
+                <div key={d.id} className="card" style={{width: '18rem'}}>
                 <img src={d.img} className="card-img-top" alt="..."/>
                 <div className="card-body">
                     <h5 className="card-title">{d.name}</h5>
-                    <p className="card-text">{d.info}</p>
+                    <p className="card-text">{d.info.slice(0,80)}..</p>
                     <Link to={d.id} className="btn btn-primary">Get Details</Link>
                 </div>
                 </div>
