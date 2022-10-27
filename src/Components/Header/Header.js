@@ -6,9 +6,16 @@ import './Header.css'
 const Header = () => {
     const {user, logOutUser} = useContext(AuthContext);
 
+    const [toggle,settoggle] = useState(false)
+
     const logout=()=>{
       logOutUser()
     }
+
+    const toogleBtn=()=>{
+      settoggle(!toggle)
+    }
+
     return (
     <div>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -34,6 +41,9 @@ const Header = () => {
         <li className="nav-item">
           <Link to='/faq' className="nav-link active" aria-current="page">FAQ</Link>
         </li>
+
+        <button onClick={toogleBtn}>{toggle ? 'Dark' : 'Light'}</button>
+
           {
             user?.uid ?
             <button onClick={logout}>Logout</button> 
@@ -47,8 +57,17 @@ const Header = () => {
               </li>
             </>
           }
+
+        {
+          user?.uid? 
+          <img className='loginimg' src={user?.photoURL}
+          data-bs-toggle="tooltip" data-bs-placement="top" title={user?.displayName}
+          alt="" />
+          :
+          null
+        }
        
-       <button>Dark</button>
+       {/* https://www.pngfind.com/pngs/m/170-1706361_web-development-icon-web-development-logo-png-transparent.png */}
            
       </ul>
     </div>

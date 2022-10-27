@@ -20,7 +20,7 @@ const CourseDetails = () => {
                     <p className="card-text">{data.info}</p>
                     
                            <Link to='/checkout' className="btn btn-primary">Get access</Link>  
-                       
+                         <button>Get Pdf</button>
                    
                 </div>
                 </div>
