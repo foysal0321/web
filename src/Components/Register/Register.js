@@ -2,10 +2,14 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Context/UseContext';
 import './Register.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate} from 'react-router-dom';
+
 const Register = () => {
-    const {user, createUser, upProfile, signinGoogle, signinGithub  } = useContext(AuthContext);
-    const [err,seterr] = useState('')
+    const { createUser, upProfile, signinGoogle, signinGithub  } = useContext(AuthContext);
+    const [err,seterr] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const form = location.state?.from?.pathname || '/' ;
 
     const providerGoogle = new GoogleAuthProvider();
     const providerGithub = new GithubAuthProvider();
@@ -24,7 +28,8 @@ const Register = () => {
             console.log(user);
             profileUpdate(name,picture)
             from.reset()
-            seterr('')
+            seterr('');
+            navigate(form, {replace: true});
         })
         .catch(err=>{
             console.error(err);
