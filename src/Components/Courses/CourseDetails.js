@@ -15,10 +15,10 @@ const CourseDetails = () => {
     })
     
     return (
-        <div className='container py-3'>         
+        <div className='container py-3 detail'>         
             <div className="pdf py-5">
               <div ref={compontRef} style={{width: '100%'}} className="">
-                <div className="card " style={{width: '29rem'}}>
+                <div className="card " >
                 <img src={data.img} className="card-img-top" alt="..."/>
                 <div className="card-body">
                     <h5 className="card-title">{data.name}</h5>

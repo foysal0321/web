@@ -1,20 +1,23 @@
 import React, { useContext, useState } from 'react';
 import { Link } from "react-router-dom";
 import { AuthContext } from '../../Context/UseContext';
-import './Header.css'
+import './Header.css';
+import { FaUser } from "react-icons/fa";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Header = () => {
     const {user, logOutUser} = useContext(AuthContext);
 
-    const [toggle,settoggle] = useState(false)
+    const [toggle,settoggle] = useState(false);
 
     const logout=()=>{
       logOutUser()
-    }
+    };
 
     const toogleBtn=()=>{
       settoggle(!toggle)
-    }
+    };
 
     return (
     <div>
@@ -58,15 +61,23 @@ const Header = () => {
             </>
           }
 
-        {
-          user?.uid? 
-          <img className='loginimg' src={user?.photoURL}
+        {/* {
+          user?.photoURL &&
+        <Link to='/profile'> <img className='loginimg' src={user?.photoURL}
           data-bs-toggle="tooltip" data-bs-placement="top" title={user?.displayName}
-          alt="" />
-          :
-          null
-        }
-       
+          alt="" /></Link>
+        } */}
+          {
+            user?.photoURL &&
+            <div className="icon" data-bs-toggle="tooltip" data-bs-placement="top" title={user?.displayName}>
+            <Link to='/profile' > <FaUser />  </Link> 
+          </div>
+          }
+        
+                
+          
+        
+       <ToastContainer />
        {/* https://www.pngfind.com/pngs/m/170-1706361_web-development-icon-web-development-logo-png-transparent.png */}
            
       </ul>

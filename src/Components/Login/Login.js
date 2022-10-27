@@ -4,10 +4,13 @@ import './Login.css';
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
-import { Navigate } from "react-router-dom";
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+
 
 const Login = () => {
-    const {user, signInUser} = useContext(AuthContext)
+    const { signInUser, signinGoogle, signinGithub} = useContext(AuthContext);
+    const providerGoogle = new GoogleAuthProvider();
+    const providerGithub = new GithubAuthProvider();
 
     const [err,seterr] = useState('')
     const navigate = useNavigate();
@@ -32,13 +35,33 @@ const Login = () => {
     .catch(err=>{
       console.error(err);
       seterr(err.message)
+  }) 
+}
+
+const signGoogle=()=>{
+  signinGoogle(providerGoogle)
+  .then(result=>{
+      const user = result.user;
+      console.log(user);
   })
-    
-    //console.log(name,picture,email,pass);
+  .catch(err=>{
+      console.errorg(err);
+  })
+}
+
+const signGithub = ()=>{
+  signinGithub(providerGithub)
+  .then(result=>{
+      const user = result.user;
+      console.log(user);
+  })
+  .catch(err=>{
+      console.errorg(err);
+  })
 }
     return (
-        <div className='container form'>
-          <h4>Log in</h4>
+        <div className='container formm py-5'>
+          <h4 className='text-center'>Log in</h4>
           <form onSubmit={signinBtn}>         
             <label>Email</label> <br />
            <input type="email" name='email' placeholder='email' required/>    <br />  
@@ -46,11 +69,11 @@ const Login = () => {
            <input type="password" name='pass' placeholder='password'/>  <br />
            <p className='err'>{err}</p>  
            <button>Log in</button>  
-           <p>Are you new?please <Link to='/register'>register</Link></p>
+           <p className='pt-2'>Are you new?please <Link to='/register'>register</Link></p>
           </form>
 
-          <button>Sign in Google</button>
-          <button>Sign in Github</button> 
+          <button onClick={signGoogle}>Sign in Google</button>
+          <button onClick={signGithub}>Sign in Github</button> 
         </div>
     );
 };

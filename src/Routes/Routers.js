@@ -9,6 +9,7 @@ import Blog from '../Components/blog/Blog'
 import FAQ from '../Components/FAQ/FAQ'
 import Checkout from '../Components/checkout/Checkout'
 import PrivetRout from "./PrivetRout.js";
+import Profile from '../Components/profile/Profile'
 
  export const router = createBrowserRouter([
     {
@@ -54,6 +55,10 @@ import PrivetRout from "./PrivetRout.js";
             {
                 path:'/login',
                 element:<Login />
+            },
+            {
+                path:'/profile',
+                element:<Profile />
             },
             
         ]

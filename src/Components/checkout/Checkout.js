@@ -1,12 +1,14 @@
 import React from 'react';
 import {  useLoaderData } from "react-router-dom";
 import './Checkout.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Checkout = () => {
     const data = useLoaderData()
 
     const access=()=>{
-
+   toast.success('your access success!')
     }
 
     return (
@@ -23,9 +25,9 @@ const Checkout = () => {
             <label>Name</label> <br />
            <input type="text" name='email' placeholder='name' required/>    <br />  
             <label>Email</label> <br />
-           <input type="email" name='email' placeholder='email' required/>    <br />  
+           <input type="email" name='email' placeholder='email' />    <br />  
             <label>Phone</label> <br />
-           <input type="number" name='email' placeholder='number' required/>    <br />  
+           <input type="number" name='email' placeholder='number'   />    <br />  
             <label>Password</label> <br />
            <input type="password" name='pass' placeholder='password'/>  <br />
  

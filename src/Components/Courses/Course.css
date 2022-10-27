@@ -1,10 +1,12 @@
 
 .course{
     display: flex;
+    flex-wrap: wrap;
 }
 .cart{
+   width: 1000px;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
     gap: 20px;
     padding: 15px;
 }
@@ -14,7 +16,7 @@
 .nameList a{
     padding: 10px;
     width: 170px;
-font-size: 22px;
+font-size: 18px;
 
 }
 .nameList button{
@@ -25,4 +27,13 @@ margin: 13px 0px;
 .card img{
     width:230px;
     height:200px;
+}
+/*  */
+.detail .card{
+    width: 30rem;
+}
+@media screen and (max-width:600px){
+    .detail .card{
+        width: 19rem;
+    }
 }

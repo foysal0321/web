@@ -18,4 +18,21 @@
     border: none;
     margin-top: 10px;
     background-color: deeppink;
+    color: white;
+    font-weight: 600;
+}
+
+@media screen and (max-width:600px){
+    .form{
+        width: 320px;
+
+    }
+    .form input{
+        padding: 13px;
+        width: 300px;
+    }
+    .form button{
+        width: 300px;
+       
+    }
 }

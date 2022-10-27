@@ -68,8 +68,8 @@ const Register = () => {
         })
     }
     return (
-        <div className='container form'>
-          <h4>Register</h4>
+        <div className='container from py-5'>
+          <h4 className='text-center'>Register</h4>
           <form onSubmit={createBtn}>
             <label>Name</label> <br />
            <input type="text" name='name' placeholder='name'/>    <br />  
@@ -81,7 +81,7 @@ const Register = () => {
            <input type="password" name='pass' placeholder='password'/>  <br />  
            <p className='err'>{err}</p>
            <button>Register</button>  
-           <p>Are you visit the site?please <Link to='/login'>log in</Link></p>
+           <p className='pt-2'>Are you visit the site?please <Link to='/login'>log in</Link></p>
           </form>
 
           <button onClick={signGoogle}>Sign in Google</button>
