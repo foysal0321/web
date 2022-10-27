@@ -13,6 +13,7 @@ const Register = () => {
 
     const providerGoogle = new GoogleAuthProvider();
     const providerGithub = new GithubAuthProvider();
+    
     const createBtn=(e)=>{
         e.preventDefault();
 
@@ -20,7 +21,7 @@ const Register = () => {
         const name = from.name.value;
         const picture = from.picture.value;
         const email = from.email.value;
-        const pass = from.pass.value;
+        const pass = from.pass.value; 
 
         createUser(email,pass)
         .then(result=>{
