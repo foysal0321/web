@@ -11,8 +11,8 @@ const Blog = () => {
                 <h4>2. Why using Firebase?</h4>
                 <p>The Firebase Realtime Database lets you build rich, collaborative applications by allowing secure access to the database directly from client-side code. Data is persisted locally, and even while offline, realtime events continue to fire, giving the end user a responsive experience. When the device regains connection, the Realtime Database synchronizes the local data changes with the remote updates that occurred while the client was offline, merging any conflicts automatically.</p>
             </div>
-            <div className="q3">
-                <h4>3. How does Private Routes Works?</h4>
+            <div className="q3"> 
+                <h4>3. How does Private Routes Works?</h4> 
                 <p>Private Routes in React Router (also called Protected Routes) require a user being authorized to visit a route (read: page). So if a user is not authorized for a specific page, they cannot access it. The most common example is authentication in a React application where a user can only access the protected pages when they are authorized (which means in this case being authenticated). Authorization goes beyond authentication though. For example, a user can also have roles and permissions which give a user access to specific areas of the application.</p>
             </div>
             <div className="q4">
