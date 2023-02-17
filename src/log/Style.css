@@ -1,34 +1,33 @@
-.from{
+.formm{
     width: 500px;
     margin: 0 auto;
 }
-.from input{
+.formm input{
     padding: 13px;
     width: 400px;
 }
-.from button{
+.formm button{
     width: 400px;
     padding: 12px;
     border: none;
     margin-top: 10px;
-    background-color: deeppink;
-    color: rgb(255, 255, 255);
+    background-color: rgba(189, 11, 11, 0.737);
+    color: white;
     font-weight: 600;
 }
 .err{
     color:red;
 }
-
 @media screen and (max-width:600px){
-    .from{
+    .formm{
         width: 320px;
 
     }
-    .from input{
+    .formm input{
         padding: 13px;
         width: 300px;
     }
-    .from button{
+    .formm button{
         width: 300px;
        
     }
